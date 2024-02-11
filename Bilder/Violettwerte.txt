@@ -1,0 +1,34 @@
+Hier sind 30 verschiedene Farbwerte zwischen #DEB2F3 und #AB0FF3, die sich langsam in der Helligkeit ändern:
+
+    #DDB1F2
+    #DDB1F1
+    #DDB0F0
+    #DCB0EF
+    #DCB0EE
+    #DCAFED
+    #DBAFEC
+    #DBAEEB
+    #DBAEEA
+    #DAADE9
+    #DAADE8
+    #DAACE7
+    #D9ACE6
+    #D9ACE5
+    #D9ABE4
+    #D8ABE3
+    #D8AAE2
+    #D8AAE1
+    #D7A9E0
+    #D7A9DF
+    #D7A8DE
+    #D6A8DD
+    #D6A7DC
+    #D6A7DB
+    #D5A6DA
+    #D5A6D9
+    #D5A5D8
+    #D4A5D7
+    #D4A4D6
+    #D4A4D5
+
+Diese Farben folgen einem sanften Übergang von #DEB2F3 zu #AB0FF3 und sind voneinander verschieden.

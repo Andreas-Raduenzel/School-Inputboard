@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metropolen - Input</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    
+
+    </style>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="icon3/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon3/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon3/favicon-16x16.png">
+    <link rel="manifest" href="icon3/site.webmanifest">
+    <link rel="mask-icon" href="icon3/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="icon3/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="icon3/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+    
+<div class="container">
+    <div class="header">
+        <h1>Input Wochenplan Metropolen</h1>
+        <img src="Bilder/logo.png" alt="Logo">
+        <img style="width: 70px; padding-left: 20px;" src="Bilder/qrcode.png" alt="QR-Code">
+    </div>
+    
+    <form id="textInputForm" >
+        <table id="wochenplan">
+            <tr>
+                <th></th>
+                <th>Montag</th>
+                <th>Dienstag</th>
+                <th>Mittwoch</th>
+                <th>Donnerstag</th>
+            </tr>
+            <tr style="background-color: rgb(190, 190, 190);">
+                <td style="border-top-left-radius: 10px ;" >07:55<div style="font-weight: bold;">1. Block</div>09:10</td>
+                
+                <td id="montag_1.Block">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector1" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                    <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                    <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector2" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector3" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="montag_text_1" id="myTextarea1" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector4" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                        <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                        <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector5" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector6" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="montag_text_2" id="myTextarea2" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="dienstag_1.Block">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector7" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector8" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector9" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="dienstag_text_1" id="myTextarea3" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector10" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                         <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector11" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector12" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="dienstag_text_2" id="myTextarea4" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="mittwoch_1.Block">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector13" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector14" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector15" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="mittwoch_text_1" id="myTextarea5" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector16" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector17" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector18" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="mittwoch_text_2" id="myTextarea6" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="donnertag_1.Block" style="padding-right: 40px; border-top-right-radius: 10px;">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector19" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector20" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector21" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="donnerstag_text_1" id="myTextarea7" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector22" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                        <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                        <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                        <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector23" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector24" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="donnerstag_text_2" id="myTextarea8" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                
+                
+            </tr>
+            <tr style="background-color: rgb(180, 180, 180);">
+                <td>09:20<div style="font-weight: bold;">Campuszeit</div>10:05</td>
+                
+                <td id="montag_camuszeit">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector25" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector26" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector27" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="montag_text_3" id="myTextarea9" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector28" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector29" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector30" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="montag_text_4" id="myTextarea10" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="dienstag_campuszeit">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector31" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector32" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector33" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="dienstag_text_3" id="myTextarea11" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector34" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector35" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector36" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="dienstag_text_4" id="myTextarea12" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="mittwoch_campuszeit">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector37" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector38" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector39" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="mittwoch_text_3" id="myTextarea13" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector40" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector41" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector42" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="mittwoch_text_4" id="myTextarea14" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="donnertag_campuszeit" style="padding-right: 40px;">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector43" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector44" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector45" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="donnerstag_text_3" id="myTextarea15" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector46" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector47" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector48" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="donnerstag_text_4" id="myTextarea16" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                
+                
+            </tr>
+            <tr style="background-color: rgb(170, 170, 170);">
+                <td>10:25<div style="font-weight: bold;">2. Block</div>11:40</td>
+                
+                <td id="montag_2. Block">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector49" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector50" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector51" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="montag_text_5" id="myTextarea17" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector52" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector53" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector54" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="montag_text_6" id="myTextarea18" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="dienstag_2. Block">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector55" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector56" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector57" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="dienstag_text_5" id="myTextarea19" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector58" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector59" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector60" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="dienstag_text_6" id="myTextarea20" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="mittwoch_2. Block">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector61" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector62" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector63" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="mittwoch_text_5" id="myTextarea21" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector64" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector65" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector66" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="mittwoch_text_6" id="myTextarea22" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="donnertag_2. Block" style="padding-right: 40px;">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector67" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector68" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector69" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="donnerstag_text_5" id="myTextarea23" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector70" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector71" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector72" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="donnerstag_text_6" id="myTextarea24" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                
+                
+            </tr>
+            <tr style="background-color: rgb(160, 160, 160);">
+                <td style="border-bottom-left-radius: 10px;">12:00<div style="font-weight: bold;">3. Block</div>13:15</td>
+                
+                <td id="montag_3. Block">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector73" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector74" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector75" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="montag_text_7" id="myTextarea25" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector76" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector77" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector78" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="montag_text_8" id="myTextarea26" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="dienstag_3. Block">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector79" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector80" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector81" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="dienstag_text_7" id="myTextarea27" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector82" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector83" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector84" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="dienstag_text_8" id="myTextarea28" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="mittwoch_3. Block">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector85" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector86" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector87" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="mittwoch_text_7" id="myTextarea29" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector88" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector89" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector90" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="mittwoch_text_8" id="myTextarea30" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                <td id="donnertag_3. Block" style="padding-right: 40px;border-bottom-right-radius: 10px;">
+                    <div class="dropdown" onclick="checkPassword()">
+                    <!--<label for="colorSelector1">Fach</label>-->
+                            <div> 
+                                <select id="colorSelector91" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Fach</option>
+                                     <option disabled value="lightsteelblue">Biologie</option>
+                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                    <option disabled value="yellow">Englisch</option>
+                                     <option disabled value="mistyrose">Erdkunde</option>
+                                    <option disabled value="salmon">Gechichte</option>
+                                    <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                    <option disabled value="lightblue">Physik</option>
+                                    <option disabled value="darkorange">Politik</option>
+                                    <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                </select> 
+                            </div>
+                            <div>   
+                                <select id="colorSelector92" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Raum</option>
+                                    <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                    <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                    <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                    <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                </select>
+                            </div> 
+                            <div>
+                                <select id="colorSelector93" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                    <option disabled selected value="white">Lehrer*in</option>
+                                    <option disabled value="#DDB1F2">BaA</option>
+                                    <option disabled value="#DDB1F1">BeK</option>
+                                    <option disabled value="#DDB0F0">BiM</option>
+                                    <option disabled value="#DCB0EF">ChE</option>
+                                    <option disabled value="#DCB0EE">EbS</option>
+                                    <option disabled value="#DCAFED">FBU</option>
+                                    <option disabled value="#DBAFEC">FrC</option>
+                                    <option disabled value="#DBAEEB">GmW</option>
+                                    <option disabled value="#DBAEEA">GrC</option>
+                                    <option disabled value="#DAADE9">GrJ</option>
+                                    <option disabled value="#DAADE8">GuH</option>
+                                    <option disabled value="#DAACE7">HäP</option>
+                                    <option disabled value="#D9ACE6">HeF</option>
+                                    <option disabled value="#D9ACE5">HüA</option>
+                                    <option disabled value="#D9ABE4">InA</option>
+                                    <option disabled value="#D8ABE3">LaT</option>
+                                    <option disabled value="#D8AAE2">NoK</option>
+                                    <option disabled value="#D8AAE1">PaN</option>
+                                    <option disabled value="#D7A9E0">RaA</option>
+                                    <option disabled value="#D7A9DF">StE</option>
+                                    <option disabled value="#D7A8DE">StJ</option>
+                                    <option disabled value="#D6A8DD">TiC</option>
+                                    <option disabled value="#D6A7DC">TMH</option>
+                                    <option disabled value="#D6A7DB">ToM</option>
+                                    <option disabled value="#D5A6DA">WeE</option>
+                                    <option disabled value="#D5A6D9">WeJ</option>
+                                </select>
+                            </div>
+                    </div>   
+                    <div><textarea name="donnerstag_text_7" id="myTextarea31" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                    <div class="dropdown" onclick="checkPassword()">
+                        <!--<label for="colorSelector1">Fach</label>-->
+                                <div> 
+                                    <select id="colorSelector94" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Fach</option>
+                                         <option disabled value="lightsteelblue">Biologie</option>
+                                        <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="red">Deutsch</option>
+                                        <option disabled value="yellow">Englisch</option>
+                                         <option disabled value="mistyrose">Erdkunde</option>
+                                        <option disabled value="salmon">Gechichte</option>
+                                        <option disabled value="rgba(75, 129, 211, 0.75)">Mathe</option>
+                                        <option disabled value="lightblue">Physik</option>
+                                        <option disabled value="darkorange">Politik</option>
+                                        <option disabled value="peachpuff">Religion</option>
+                                        <option disabled value="rgba(182, 140, 23, 0.75)">Wirtschaft</option>
+                                        <option disabled value="rgb(233, 191, 155)">WuN</option>
+                                    </select> 
+                                </div>
+                                <div>   
+                                    <select id="colorSelector95" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Raum</option>
+                                        <option disabled value="rgba(200, 255, 180, 0.75)">M1 Forum</option>
+                                        <option disabled value="rgba(180, 230, 160, 0.75)">M2 Forum</option>
+                                        <option disabled value="rgba(160, 210, 140, 0.75)">M3 Forum</option>
+                                        <option disabled value="rgba(140, 190, 120, 0.75)">Oktopus</option>
+                                    </select>
+                                </div> 
+                                <div>
+                                    <select id="colorSelector96" class="colorSelector" onchange="changeBackgroundColor(this)">
+                                        <option disabled selected value="white">Lehrer*in</option>
+                                        <option disabled value="#DDB1F2">BaA</option>
+                                        <option disabled value="#DDB1F1">BeK</option>
+                                        <option disabled value="#DDB0F0">BiM</option>
+                                        <option disabled value="#DCB0EF">ChE</option>
+                                        <option disabled value="#DCB0EE">EbS</option>
+                                        <option disabled value="#DCAFED">FBU</option>
+                                        <option disabled value="#DBAFEC">FrC</option>
+                                        <option disabled value="#DBAEEB">GmW</option>
+                                        <option disabled value="#DBAEEA">GrC</option>
+                                        <option disabled value="#DAADE9">GrJ</option>
+                                        <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAACE7">HäP</option>
+                                        <option disabled value="#D9ACE6">HeF</option>
+                                        <option disabled value="#D9ACE5">HüA</option>
+                                        <option disabled value="#D9ABE4">InA</option>
+                                        <option disabled value="#D8ABE3">LaT</option>
+                                        <option disabled value="#D8AAE2">NoK</option>
+                                        <option disabled value="#D8AAE1">PaN</option>
+                                        <option disabled value="#D7A9E0">RaA</option>
+                                        <option disabled value="#D7A9DF">StE</option>
+                                        <option disabled value="#D7A8DE">StJ</option>
+                                        <option disabled value="#D6A8DD">TiC</option>
+                                        <option disabled value="#D6A7DC">TMH</option>
+                                        <option disabled value="#D6A7DB">ToM</option>
+                                        <option disabled value="#D5A6DA">WeE</option>
+                                        <option disabled value="#D5A6D9">WeJ</option>
+                                    </select>
+                                </div>
+                        </div>   
+                        <div><textarea name="donnerstag_text_8" id="myTextarea32" class="myTextarea" placeholder="Thema" rows="2" cols="50" readonly onclick="checkPassword()"></textarea></div>
+                </td>
+                
+                
+            </tr>
+
+            
+            
+            
+         
+        </table>
+    </form>
+    <div class="legende">
+        <div class="legendetext">Legende:</div>
+        <div class="unterricht_cell" style="background-color: lightsteelblue;">Biologie</div>
+        <div class="unterricht_cell" style="background-color: cadetblue;">Chemie</div>
+        <div class="unterricht_cell" style="background-color: red;">Deutsch</div>
+        <div class="unterricht_cell" style="background-color: yellow;">Englisch</div>
+        <div class="unterricht_cell" style="background-color: mistyrose;">Erdkunde</div>
+        <div class="unterricht_cell" style="background-color: salmon;">Geschichte</div>
+        <div class="unterricht_cell" style="background-color: rgba(75, 129, 211, 0.90);">Mathe</div>
+        <div class="unterricht_cell" style="background-color: lightblue;">Physik</div>
+        <div class="unterricht_cell" style="background-color: darkorange;">Politik</div>
+        <div class="unterricht_cell" style="background-color: peachpuff;">Religion</div>
+        <div class="unterricht_cell" style="background-color: rgba(182, 140, 23, 0.75);">Wirtschaft</div>
+        <div class="unterricht_cell" style="background-color: rgb(233, 191, 155);">WuN</div>
+        <div class="unterricht_cell" style="background-color: rgba(200, 255, 180, 0.75);">M1 Forum</div>
+        <div class="unterricht_cell" style="background-color: rgba(180, 230, 160, 0.75);">M2 Forum</div>
+        <div class="unterricht_cell" style="background-color: rgba(160, 210, 140, 0.75);">M3 Forum</div>
+        <div class="unterricht_cell" style="background-color: rgba(140, 190, 120, 0.75);">Oktopus</div>
+        <div class="unterricht_cell" style="background-color: rgba(230, 153, 250, 0.75);">Lehrer*in</div>
+    </div>
+</div>
+
+
+
+
+<script src="script.js"></script>
+
+
+<script>    // Funktion, die aufgerufen wird, wenn sich die Auswahl in einem Dropdown-Menü ändert
+    function changeBackgroundColor(selectElement) {
+        // Hintergrundfarbe entsprechend dem ausgewählten Wert festlegen
+        var selectedColor = selectElement.value;
+        selectElement.style.backgroundColor = selectedColor;
+    }
+
+</script>
+
+<script>function saveColorSelections() {
+    var colorSelectors = document.querySelectorAll('.colorSelector');
+    var colors = {};
+    colorSelectors.forEach(function(selector) {
+        colors[selector.id] = selector.value;
+    });
+
+    // AJAX request to save colors
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'save_colors.php');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log('Colors saved successfully.');
+        } else {
+            console.error('Failed to save colors.');
+        }
+    };
+    xhr.send(JSON.stringify(colors));
+}
+
+// Call saveColorSelections() whenever a color selection changes
+document.querySelectorAll('.colorSelector').forEach(function(selector) {
+    selector.addEventListener('change', saveColorSelections);
+});
+
+</script>
+
+<script>window.addEventListener('load', function() {
+    // AJAX-Anfrage zum Laden der gespeicherten Farbwerte aus der Textdatei
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'saved_colors.txt');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var savedColors = JSON.parse(xhr.responseText);
+            applySavedColors(savedColors); // Funktion aufrufen, um die Farbwerte anzuwenden
+        }
+    };
+    xhr.send();
+});
+
+// Funktion zum Anwenden der gespeicherten Farbwerte auf die Dropdown-Menüs
+function applySavedColors(savedColors) {
+    if (savedColors) {
+        Object.keys(savedColors).forEach(function(id) {
+            var dropdown = document.getElementById(id);
+            if (dropdown) {
+                dropdown.value = savedColors[id];
+                dropdown.style.backgroundColor = savedColors[id];
+            }
+        });
+    }
+}
+</script>
+
+<script>
+    
+// JavaScript function to set background color of textareas based on the first select element in every third dropdown
+function changeTextareaBackground(selectId) {
+    var selectElement = document.getElementById(selectId);
+    var selectedColor = selectElement.value;
+
+    // Extrahiere die Nummer des Textbereichs aus der ID des Select-Elements
+    var index = parseInt(selectId.replace("colorSelector", ""));
+    var textareaIndex = Math.floor(index / 3) + 1; // Berechne den Index des zugehörigen Textbereichs
+
+    var textareaId = "myTextarea" + textareaIndex;
+    
+    // Überprüfe, ob die Textarea existiert
+    var textarea = document.getElementById(textareaId);
+    if (textarea) {
+        textarea.style.backgroundColor = selectedColor;
+    }
+}
+
+// Rufe die Funktion changeTextareaBackground() auf, wenn sich der Wert im ersten Select-Element in jedem dritten Dropdown-Div ändert
+document.querySelectorAll('.dropdown select').forEach(function(select, index) {
+    if ((index + 1) % 3 === 1) {
+        select.addEventListener('change', function() {
+            var selectId = this.id;
+            changeTextareaBackground(selectId);
+        });
+    }
+});
+
+
+
+
+</script>
+
+
+</body>
+</html>
