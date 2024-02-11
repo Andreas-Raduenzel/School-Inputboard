@@ -50,9 +50,9 @@
                     <!--<label for="colorSelector1">Fach</label>-->
                             <div> 
                                 <select id="colorSelector1" class="colorSelector" onchange="changeBackgroundColor(this)">
-                                    <option disabled selected value="white">Fach</option>
+                                    <option disabled selected value="white">Fach1</option>
                                     <option disabled value="lightsteelblue">Biologie</option>
-                                    <option disabled value="cadetblue">Chemie</option>
+                                    <option disabled value="cadetblue">Chemie</o                                               ption>
                                     <option disabled value="red">Deutsch</option>
                                     <option disabled value="yellow">Englisch</option>
                                     <option disabled value="mistyrose">Erdkunde</option>
@@ -112,7 +112,7 @@
                         <!--<label for="colorSelector1">Fach</label>-->
                                 <div> 
                                     <select id="colorSelector4" class="colorSelector" onchange="changeBackgroundColor(this)">
-                                        <option disabled selected value="white">Fach</option>
+                                        <option disabled selected value="white">Fach2</option>
                                         <option disabled value="lightsteelblue">Biologie</option>
                                         <option disabled value="cadetblue">Chemie</option>
                                         <option disabled value="red">Deutsch</option>
@@ -175,7 +175,7 @@
                     <!--<label for="colorSelector1">Fach</label>-->
                             <div> 
                                 <select id="colorSelector7" class="colorSelector" onchange="changeBackgroundColor(this)">
-                                    <option disabled selected value="white">Fach</option>
+                                    <option disabled selected value="white">Fach3</option>
                                      <option disabled value="lightsteelblue">Biologie</option>
                                     <option disabled value="cadetblue">Chemie</option>
                                     <option disabled value="red">Deutsch</option>
@@ -237,7 +237,7 @@
                         <!--<label for="colorSelector1">Fach</label>-->
                                 <div> 
                                     <select id="colorSelector10" class="colorSelector" onchange="changeBackgroundColor(this)">
-                                        <option disabled selected value="white">Fach</option>
+                                        <option disabled selected value="white">Fach4</option>
                                          <option disabled value="lightsteelblue">Biologie</option>
                                         <option disabled value="cadetblue">Chemie</option>
                                     <option disabled value="red">Deutsch</option>
@@ -2087,104 +2087,133 @@
 <script src="script.js"></script>
 
 
-<script>    // Funktion, die aufgerufen wird, wenn sich die Auswahl in einem Dropdown-Menü ändert
+
+
+<script>
+    // Funktion, die aufgerufen wird, wenn sich die Auswahl in einem Dropdown-Menü ändert
     function changeBackgroundColor(selectElement) {
         // Hintergrundfarbe entsprechend dem ausgewählten Wert festlegen
         var selectedColor = selectElement.value;
         selectElement.style.backgroundColor = selectedColor;
+
+        // Überprüfen, ob das selectElement eines der spezifischen IDs hat
+        if (selectElement.id === 'colorSelector1') {
+            // Hintergrundfarbe des zugehörigen Textareas ändern
+            var textarea = document.getElementById('myTextarea1');
+            if (textarea) {
+                textarea.style.backgroundColor = selectedColor;
+            }
+        } else if (selectElement.id === 'colorSelector4') {
+            var textarea = document.getElementById('myTextarea2');
+            if (textarea) {
+                textarea.style.backgroundColor = selectedColor;
+            }
+        } else if (selectElement.id === 'colorSelector7') {
+            var textarea = document.getElementById('myTextarea3');
+            if (textarea) {
+                textarea.style.backgroundColor = selectedColor;
+            }
+        } else if (selectElement.id === 'colorSelector10') {
+            var textarea = document.getElementById('myTextarea4');
+            if (textarea) {
+                textarea.style.backgroundColor = selectedColor;
+            }
+        }
+
+        // Speichern der Farbe
+        saveColorSelections();
     }
 
-</script>
+    // Funktion zum Speichern der Farbwerte der Dropdown-Menüs
+    function saveColorSelections() {
+        var colorSelectors = document.querySelectorAll('.colorSelector');
+        var colors = {};
+        colorSelectors.forEach(function(selector) {
+            colors[selector.id] = selector.value;
+        });
 
-<script>function saveColorSelections() {
-    var colorSelectors = document.querySelectorAll('.colorSelector');
-    var colors = {};
-    colorSelectors.forEach(function(selector) {
-        colors[selector.id] = selector.value;
+        // AJAX-Anfrage zum Speichern der Farbwerte auf dem Server
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'save_colors.php');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                console.log('Colors saved successfully.');
+            } else {
+                console.error('Failed to save colors.');
+            }
+        };
+        xhr.send(JSON.stringify(colors));
+    }
+
+    // Call saveColorSelections() whenever a color selection changes
+    document.querySelectorAll('.colorSelector').forEach(function(selector) {
+        selector.addEventListener('change', changeBackgroundColor);
     });
 
-    // AJAX request to save colors
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'save_colors.php');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            console.log('Colors saved successfully.');
-        } else {
-            console.error('Failed to save colors.');
-        }
-    };
-    xhr.send(JSON.stringify(colors));
-}
-
-// Call saveColorSelections() whenever a color selection changes
-document.querySelectorAll('.colorSelector').forEach(function(selector) {
-    selector.addEventListener('change', saveColorSelections);
-});
-
-</script>
-
-<script>window.addEventListener('load', function() {
-    // AJAX-Anfrage zum Laden der gespeicherten Farbwerte aus der Textdatei
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'saved_colors.txt');
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var savedColors = JSON.parse(xhr.responseText);
-            applySavedColors(savedColors); // Funktion aufrufen, um die Farbwerte anzuwenden
-        }
-    };
-    xhr.send();
-});
-
-// Funktion zum Anwenden der gespeicherten Farbwerte auf die Dropdown-Menüs
-function applySavedColors(savedColors) {
-    if (savedColors) {
-        Object.keys(savedColors).forEach(function(id) {
-            var dropdown = document.getElementById(id);
-            if (dropdown) {
-                dropdown.value = savedColors[id];
-                dropdown.style.backgroundColor = savedColors[id];
+    // Beim Laden der Seite gespeicherte Farbwerte anwenden
+    window.addEventListener('load', function() {
+        // AJAX-Anfrage zum Laden der gespeicherten Farbwerte aus der Textdatei
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'saved_colors.txt');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var savedColors = JSON.parse(xhr.responseText);
+                applySavedColors(savedColors); // Funktion aufrufen, um die Farbwerte anzuwenden
             }
-        });
+        };
+        xhr.send();
+    });
+
+    // Funktion zum Anwenden der gespeicherten Farbwerte auf die Dropdown-Menüs
+    function applySavedColors(savedColors) {
+        if (savedColors) {
+            Object.keys(savedColors).forEach(function(id) {
+                var dropdown = document.getElementById(id);
+                if (dropdown) {
+                    dropdown.value = savedColors[id];
+                    dropdown.style.backgroundColor = savedColors[id];
+                    // Hintergrundfarbe der zugehörigen Textarea aktualisieren
+                    if (id === 'colorSelector1') {
+                        var textarea = document.getElementById('myTextarea1');
+                        if (textarea) {
+                            textarea.style.backgroundColor = savedColors[id];
+                        }
+                    } else if (id === 'colorSelector4') {
+                        var textarea = document.getElementById('myTextarea2');
+                        if (textarea) {
+                            textarea.style.backgroundColor = savedColors[id];
+                        }
+                    } else if (id === 'colorSelector7') {
+                        var textarea = document.getElementById('myTextarea3');
+                        if (textarea) {
+                            textarea.style.backgroundColor = savedColors[id];
+                        }
+                    } else if (id === 'colorSelector10') {
+                        var textarea = document.getElementById('myTextarea4');
+                        if (textarea) {
+                            textarea.style.backgroundColor = savedColors[id];
+                        }
+                    }
+                }
+            });
+        }
     }
-}
 </script>
 
-<script>
+
+
+
+
+
+
+
+
+
+
+
     
-// JavaScript function to set background color of textareas based on the first select element in every third dropdown
-function changeTextareaBackground(selectId) {
-    var selectElement = document.getElementById(selectId);
-    var selectedColor = selectElement.value;
 
-    // Extrahiere die Nummer des Textbereichs aus der ID des Select-Elements
-    var index = parseInt(selectId.replace("colorSelector", ""));
-    var textareaIndex = Math.floor(index / 3) + 1; // Berechne den Index des zugehörigen Textbereichs
-
-    var textareaId = "myTextarea" + textareaIndex;
-    
-    // Überprüfe, ob die Textarea existiert
-    var textarea = document.getElementById(textareaId);
-    if (textarea) {
-        textarea.style.backgroundColor = selectedColor;
-    }
-}
-
-// Rufe die Funktion changeTextareaBackground() auf, wenn sich der Wert im ersten Select-Element in jedem dritten Dropdown-Div ändert
-document.querySelectorAll('.dropdown select').forEach(function(select, index) {
-    if ((index + 1) % 3 === 1) {
-        select.addEventListener('change', function() {
-            var selectId = this.id;
-            changeTextareaBackground(selectId);
-        });
-    }
-});
-
-
-
-
-</script>
 
 
 </body>
