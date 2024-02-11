@@ -2091,38 +2091,26 @@
 
 <script>
     // Funktion, die aufgerufen wird, wenn sich die Auswahl in einem Dropdown-Menü ändert
-    function changeBackgroundColor(selectElement) {
-        // Hintergrundfarbe entsprechend dem ausgewählten Wert festlegen
-        var selectedColor = selectElement.value;
-        selectElement.style.backgroundColor = selectedColor;
+function changeBackgroundColor(selectElement) {
+    // Hintergrundfarbe entsprechend dem ausgewählten Wert festlegen
+    var selectedColor = selectElement.value;
+    selectElement.style.backgroundColor = selectedColor;
 
-        // Überprüfen, ob das selectElement eines der spezifischen IDs hat
-        if (selectElement.id === 'colorSelector1') {
+    // Überprüfen, ob das selectElement eines der spezifischen IDs hat
+    for (var i = 1; i <= 32; i++) {
+        if (selectElement.id === 'colorSelector' + (i * 3 - 2)) {
             // Hintergrundfarbe des zugehörigen Textareas ändern
-            var textarea = document.getElementById('myTextarea1');
+            var textarea = document.getElementById('myTextarea' + i);
             if (textarea) {
                 textarea.style.backgroundColor = selectedColor;
             }
-        } else if (selectElement.id === 'colorSelector4') {
-            var textarea = document.getElementById('myTextarea2');
-            if (textarea) {
-                textarea.style.backgroundColor = selectedColor;
-            }
-        } else if (selectElement.id === 'colorSelector7') {
-            var textarea = document.getElementById('myTextarea3');
-            if (textarea) {
-                textarea.style.backgroundColor = selectedColor;
-            }
-        } else if (selectElement.id === 'colorSelector10') {
-            var textarea = document.getElementById('myTextarea4');
-            if (textarea) {
-                textarea.style.backgroundColor = selectedColor;
-            }
+            break; // Stoppen der Schleife, da das entsprechende Textarea gefunden wurde
         }
-
-        // Speichern der Farbe
-        saveColorSelections();
     }
+
+    // Speichern der Farbe
+    saveColorSelections();
+}
 
     // Funktion zum Speichern der Farbwerte der Dropdown-Menüs
     function saveColorSelections() {
@@ -2145,6 +2133,7 @@
         };
         xhr.send(JSON.stringify(colors));
     }
+    
 
     // Call saveColorSelections() whenever a color selection changes
     document.querySelectorAll('.colorSelector').forEach(function(selector) {
@@ -2165,40 +2154,32 @@
         xhr.send();
     });
 
-    // Funktion zum Anwenden der gespeicherten Farbwerte auf die Dropdown-Menüs
-    function applySavedColors(savedColors) {
-        if (savedColors) {
-            Object.keys(savedColors).forEach(function(id) {
-                var dropdown = document.getElementById(id);
-                if (dropdown) {
-                    dropdown.value = savedColors[id];
-                    dropdown.style.backgroundColor = savedColors[id];
-                    // Hintergrundfarbe der zugehörigen Textarea aktualisieren
-                    if (id === 'colorSelector1') {
-                        var textarea = document.getElementById('myTextarea1');
-                        if (textarea) {
-                            textarea.style.backgroundColor = savedColors[id];
-                        }
-                    } else if (id === 'colorSelector4') {
-                        var textarea = document.getElementById('myTextarea2');
-                        if (textarea) {
-                            textarea.style.backgroundColor = savedColors[id];
-                        }
-                    } else if (id === 'colorSelector7') {
-                        var textarea = document.getElementById('myTextarea3');
-                        if (textarea) {
-                            textarea.style.backgroundColor = savedColors[id];
-                        }
-                    } else if (id === 'colorSelector10') {
-                        var textarea = document.getElementById('myTextarea4');
-                        if (textarea) {
-                            textarea.style.backgroundColor = savedColors[id];
+            // Funktion zum Anwenden der gespeicherten Farbwerte auf die Dropdown-Menüs
+        function applySavedColors(savedColors) {
+            if (savedColors) {
+                Object.keys(savedColors).forEach(function(id) {
+                    var dropdown = document.getElementById(id);
+                    if (dropdown) {
+                        dropdown.value = savedColors[id];
+                        dropdown.style.backgroundColor = savedColors[id];
+                        
+                        // Hintergrundfarbe der zugehörigen Textarea aktualisieren
+                        for (var i = 1; i <= 32; i++) {
+                            var colorSelectorId = 'colorSelector' + (i * 3 - 2);
+                            var textareaId = 'myTextarea' + i;  
+                            
+                            if (id === colorSelectorId) {
+                                var textarea = document.getElementById(textareaId);
+                                if (textarea) {
+                                    textarea.style.backgroundColor = savedColors[id];
+                                }
+                                break; // Stoppen der Schleife, da das entsprechende Textarea gefunden wurde
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
         }
-    }
 </script>
 
 
