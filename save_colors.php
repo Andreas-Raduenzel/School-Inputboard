@@ -1,4 +1,6 @@
 <?php
+// Setze den Cache-Control-Header, um das Browser-Caching zu verhindern
+header("Cache-Control: no-cache, must-revalidate");
 // Überprüfen, ob die Anfrage POST-Daten enthält
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Farbwerte aus dem POST-Daten-Array extrahieren

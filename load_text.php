@@ -1,4 +1,6 @@
 <?php
+// Setze den Cache-Control-Header, um das Browser-Caching zu verhindern
+header("Cache-Control: no-cache, must-revalidate");
 $day = $_GET['day'];
 $index = $_GET['index'];
 $filename = $day . '_text_' . $index . '.txt';

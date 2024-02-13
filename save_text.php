@@ -1,4 +1,6 @@
 <?php
+// Setze den Cache-Control-Header, um das Browser-Caching zu verhindern
+header("Cache-Control: no-cache, must-revalidate");
 header('Content-Type: application/json');
 
 // Empfangen Sie die Daten vom JavaScript
