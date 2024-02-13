@@ -52,6 +52,7 @@ p {
     margin-top: 20px; /* Abstand zwischen Text und Tabelle */
 }
 
+
 table {
 
     border-collapse: collapse;
@@ -75,6 +76,7 @@ th, td {
 
     
 }
+
 
 /* Styling für das Dropdown-Menü */
 .colorSelector {
