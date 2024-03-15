@@ -83,35 +83,156 @@ socket.addEventListener('message', function (event) {
 var passwordEntered = false;
 
 function checkPassword() {
-if (!passwordEntered) {
-   var password = prompt("Bitte geben Sie das Passwort ein:");
-   if (password === null) {
-       // Benutzer hat auf "Abbrechen" geklickt
-       return;
-   } else if (password === "lehrer") {
-       // Passwort korrekt, alle Elemente entsperren
-       var disabledElements = document.querySelectorAll("[disabled]");
-       disabledElements.forEach(function(element) {
-           element.removeAttribute("disabled");
-       });
-       var readonlyTextareas = document.querySelectorAll("textarea[readonly]");
-       readonlyTextareas.forEach(function(textarea) {
-           textarea.removeAttribute("readonly");
-       });
-       passwordEntered = true;
-   } else {
-       alert("Falsches Passwort!");  
-   }
+    if (!passwordEntered) {
+        var passwordInput = document.createElement("input");
+        passwordInput.type = "password";
+        var modal = document.createElement("div");
+        modal.style.position = "fixed";
+        modal.style.top = "50%";
+        modal.style.left = "50%";
+        modal.style.transform = "translate(-50%, -50%)";
+        modal.style.backgroundColor = "#333";
+        modal.style.color = "#fff";
+        modal.style.padding = "20px";
+        modal.style.border = "2px solid #ccc";
+        modal.style.borderRadius = "8px";
+        modal.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+        modal.style.display = "flex";
+        modal.style.flexDirection = "column";
+        modal.style.alignItems = "center";
+
+        var form = document.createElement("form");
+        form.onsubmit = function(event) {
+            event.preventDefault();
+            var enteredPassword = passwordInput.value;
+            if (enteredPassword === "lehrer") {
+                // Passwort korrekt, alle Elemente entsperren
+                var disabledElements = document.querySelectorAll("[disabled]");
+                disabledElements.forEach(function(element) {
+                    element.removeAttribute("disabled");
+                });
+                var readonlyTextareas = document.querySelectorAll("textarea[readonly]");
+                readonlyTextareas.forEach(function(textarea) {
+                    textarea.removeAttribute("readonly");
+                });
+                passwordEntered = true;
+                modal.remove();
+            } else {
+                alert("Falsches Passwort!");
+            }
+        };
+
+        var label = document.createElement("label");
+        label.textContent = "Bitte Passwort eingeben:";
+        label.style.color = "#fff";
+        form.appendChild(label);
+        form.appendChild(passwordInput);
+
+        var sendButton = document.createElement("button");
+        sendButton.textContent = "Senden";
+        form.appendChild(sendButton);
+
+        var cancelButton = document.createElement("button");
+        cancelButton.textContent = "Abbrechen";
+        cancelButton.type = "button";
+        cancelButton.onclick = function() {
+            modal.remove();
+        };
+        form.appendChild(cancelButton);
+
+        modal.appendChild(form);
+        document.body.appendChild(modal);
+    }
 }
+
+  // Funktion, die aufgerufen wird, wenn sich die Auswahl in einem Dropdown-Menü ändert
+  function changeBackgroundColor(selectElement) {
+    // Hintergrundfarbe entsprechend dem ausgewählten Wert festlegen
+    var selectedColor = selectElement.value;
+    selectElement.style.backgroundColor = selectedColor;
+
+    // Überprüfen, ob das selectElement eines der spezifischen IDs hat
+    for (var i = 1; i <= 32; i++) {
+        if (selectElement.id === 'colorSelector' + (i * 3 - 2)) {
+            // Hintergrundfarbe des zugehörigen Textareas ändern
+            var textarea = document.getElementById('myTextarea' + i);
+            if (textarea) {
+                textarea.style.backgroundColor = selectedColor;
+            }
+            break; // Stoppen der Schleife, da das entsprechende Textarea gefunden wurde
+        }
+    }
+
+    // Speichern der Farbe
+    saveColorSelections();
 }
-/*
-// Event-Handler für Änderungen in den Textareas
-document.querySelectorAll('textarea').forEach(function (textarea) {
-   textarea.addEventListener('input', function () {
-       const textKey = this.name;
-       const text = this.value;
-       const message = { textKey, text };
-       socket.send(JSON.stringify(message));
-   });
-});///Ende-Passwort-Abrafge*/
+
+    // Funktion zum Speichern der Farbwerte der Dropdown-Menüs
+    function saveColorSelections() {
+        var colorSelectors = document.querySelectorAll('.colorSelector');
+        var colors = {};
+        colorSelectors.forEach(function(selector) {
+            colors[selector.id] = selector.value;
+        });
+
+        // AJAX-Anfrage zum Speichern der Farbwerte auf dem Server
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'save_colors.php');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                console.log('Colors saved successfully.');
+            } else {
+                console.error('Failed to save colors.');
+            }
+        };
+        xhr.send(JSON.stringify(colors));
+    }
+    
+
+    // Call saveColorSelections() whenever a color selection changes
+    document.querySelectorAll('.colorSelector').forEach(function(selector) {
+        selector.addEventListener('change', changeBackgroundColor);
+    });
+
+    // Beim Laden der Seite gespeicherte Farbwerte anwenden
+    window.addEventListener('load', function() {
+        // AJAX-Anfrage zum Laden der gespeicherten Farbwerte aus der Textdatei
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'saved_colors.txt');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var savedColors = JSON.parse(xhr.responseText);
+                applySavedColors(savedColors); // Funktion aufrufen, um die Farbwerte anzuwenden
+            }
+        };
+        xhr.send();
+    });
+
+            // Funktion zum Anwenden der gespeicherten Farbwerte auf die Dropdown-Menüs
+        function applySavedColors(savedColors) {
+            if (savedColors) {
+                Object.keys(savedColors).forEach(function(id) {
+                    var dropdown = document.getElementById(id);
+                    if (dropdown) {
+                        dropdown.value = savedColors[id];
+                        dropdown.style.backgroundColor = savedColors[id];
+                        
+                        // Hintergrundfarbe der zugehörigen Textarea aktualisieren
+                        for (var i = 1; i <= 32; i++) {
+                            var colorSelectorId = 'colorSelector' + (i * 3 - 2);
+                            var textareaId = 'myTextarea' + i;  
+                            
+                            if (id === colorSelectorId) {
+                                var textarea = document.getElementById(textareaId);
+                                if (textarea) {
+                                    textarea.style.backgroundColor = savedColors[id];
+                                }
+                                break; // Stoppen der Schleife, da das entsprechende Textarea gefunden wurde
+                            }
+                        }
+                    }
+                });
+            }
+        }
 

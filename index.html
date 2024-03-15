@@ -9,7 +9,7 @@
     <meta http-equiv="expires" content="0">
 
 
-    <title>Metropolen - Input</title>
+    <title>Metropolis Inputboard</title>
     <link rel="stylesheet" href="styles.css">
     <style>
     
@@ -32,24 +32,30 @@
 </head>
 <body>
     
-<div class="container">
+
     
-    <div class="header">
+   <div class="header-container">
+        <div class="header">
+            <div><img style="width: 75%; margin-left: 1em;" src="Bilder/logo.png" alt="Logo"></div>
+            <!--)<div style="margin: 0;text-align: center;"><img style="width: 70%;background-image: linear-gradient(rgb(255, 254, 195), rgb(238, 98, 98), rgb(97, 223, 92), rgb(98, 136, 238));; padding: 5px;border-radius: 5px;border:1px solid grey; background-color: silver;" src="Bilder/Metropolis-Inputboard_ohne_Hintergrund.png" alt="QR-Code"></div>-->
+            <div style="margin: 0;text-align: center;"><img style="width: 60%;background-image:radial-gradient(circle, white 20%, rgb(185, 185, 185) 90%); padding: 5px;border-radius: 5px;border:1px solid grey; background-color: silver; box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);" src="Bilder/Metropolis-Inputboard_ohne_Hintergrund.png" alt="QR-Code"></div>
+            <div><img style="width: 30%;" src="Bilder/qrcode.png" alt="QR-Code"></div>
+            <div id="clock"><iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=de&size=small&timezone=Europe%2FBerlin"  width="100%" height="90" frameborder="0" seamless></iframe></div>
         
-        <h1>Input Wochenplan Metropolen</h1>
-        <img src="Bilder/logo.png" alt="Logo">
-        <img style="width: 70px; padding-left: 20px;" src="Bilder/qrcode.png" alt="QR-Code">
-        <div>  <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=de&size=small&timezone=Europe%2FBerlin" width="100%" height="90" frameborder="0" seamless></iframe>  </div>
+        </div>
     </div>
+
+        
+    <div class="container">
    
     <form id="textInputForm" >
         <table id="wochenplan">
             <tr>
                 <th></th>
-                <th>Montag</th>
-                <th>Dienstag</th>
-                <th>Mittwoch</th>
-                <th>Donnerstag</th>
+                <th> <img style="width: 170px; margin-left: 1em;" src="Bilder/Montag_ohne_Hintergrund.png" alt="Montag"></th>
+                <th><img style="width: 190px; margin-left: 1em;" src="Bilder/Dienstag_ohne_Hintergrund.png" alt="Dienstga"></th>
+                <th><img style="width: 200px; margin-left: 1em;" src="Bilder/Mittwoch_ohne_Hintergrund.png" alt="Mittwoch"></th>
+                <th><img style="width: 210px; margin-left: 1em;" src="Bilder/Donnerstag_ohne_Hintergrund.png" alt="Donnerstag"></th>
             </tr>
             <tr style="background-color: rgb(250, 250, 250);">
                 <td style="border-top-left-radius: 10px ;" >07:55<div style="font-weight: bold;">1. Block</div>09:10</td>
@@ -290,7 +296,96 @@
                                         <option disabled value="#DBAEEB">GmW</option>
                                         <option disabled value="#DBAEEA">GrC</option>
                                         <option disabled value="#DAADE9">GrJ</option>
-                                        <option disabled value="#DAADE8">GuH</option>
+                                        // Funktion, die aufgerufen wird, wenn sich die Auswahl in einem Dropdown-Menü ändert
+                                        function changeBackgroundColor(selectElement) {
+                                            // Hintergrundfarbe entsprechend dem ausgewählten Wert festlegen
+                                            var selectedColor = selectElement.value;
+                                            selectElement.style.backgroundColor = selectedColor;
+                                        
+                                            // Überprüfen, ob das selectElement eines der spezifischen IDs hat
+                                            for (var i = 1; i <= 32; i++) {
+                                                if (selectElement.id === 'colorSelector' + (i * 3 - 2)) {
+                                                    // Hintergrundfarbe des zugehörigen Textareas ändern
+                                                    var textarea = document.getElementById('myTextarea' + i);
+                                                    if (textarea) {
+                                                        textarea.style.backgroundColor = selectedColor;
+                                                    }
+                                                    break; // Stoppen der Schleife, da das entsprechende Textarea gefunden wurde
+                                                }
+                                            }
+                                        
+                                            // Speichern der Farbe
+                                            saveColorSelections();
+                                        }
+                                        
+                                            // Funktion zum Speichern der Farbwerte der Dropdown-Menüs
+                                            function saveColorSelections() {
+                                                var colorSelectors = document.querySelectorAll('.colorSelector');
+                                                var colors = {};
+                                                colorSelectors.forEach(function(selector) {
+                                                    colors[selector.id] = selector.value;
+                                                });
+                                        
+                                                // AJAX-Anfrage zum Speichern der Farbwerte auf dem Server
+                                                var xhr = new XMLHttpRequest();
+                                                xhr.open('POST', 'save_colors.php');
+                                                xhr.setRequestHeader('Content-Type', 'application/json');
+                                                xhr.onload = function() {
+                                                    if (xhr.status === 200) {
+                                                        console.log('Colors saved successfully.');
+                                                    } else {
+                                                        console.error('Failed to save colors.');
+                                                    }
+                                                };
+                                                xhr.send(JSON.stringify(colors));
+                                            }
+                                            
+                                        
+                                            // Call saveColorSelections() whenever a color selection changes
+                                            document.querySelectorAll('.colorSelector').forEach(function(selector) {
+                                                selector.addEventListener('change', changeBackgroundColor);
+                                            });
+                                        
+                                            // Beim Laden der Seite gespeicherte Farbwerte anwenden
+                                            window.addEventListener('load', function() {
+                                                // AJAX-Anfrage zum Laden der gespeicherten Farbwerte aus der Textdatei
+                                                var xhr = new XMLHttpRequest();
+                                                xhr.open('GET', 'saved_colors.txt');
+                                                xhr.onreadystatechange = function() {
+                                                    if (xhr.readyState === 4 && xhr.status === 200) {
+                                                        var savedColors = JSON.parse(xhr.responseText);
+                                                        applySavedColors(savedColors); // Funktion aufrufen, um die Farbwerte anzuwenden
+                                                    }
+                                                };
+                                                xhr.send();
+                                            });
+                                        
+                                                    // Funktion zum Anwenden der gespeicherten Farbwerte auf die Dropdown-Menüs
+                                                function applySavedColors(savedColors) {
+                                                    if (savedColors) {
+                                                        Object.keys(savedColors).forEach(function(id) {
+                                                            var dropdown = document.getElementById(id);
+                                                            if (dropdown) {
+                                                                dropdown.value = savedColors[id];
+                                                                dropdown.style.backgroundColor = savedColors[id];
+                                                                
+                                                                // Hintergrundfarbe der zugehörigen Textarea aktualisieren
+                                                                for (var i = 1; i <= 32; i++) {
+                                                                    var colorSelectorId = 'colorSelector' + (i * 3 - 2);
+                                                                    var textareaId = 'myTextarea' + i;  
+                                                                    
+                                                                    if (id === colorSelectorId) {
+                                                                        var textarea = document.getElementById(textareaId);
+                                                                        if (textarea) {
+                                                                            textarea.style.backgroundColor = savedColors[id];
+                                                                        }
+                                                                        break; // Stoppen der Schleife, da das entsprechende Textarea gefunden wurde
+                                                                    }
+                                                                }
+                                                            }
+                                                        });
+                                                    }
+                                                }          <option disabled value="#DAADE8">GuH</option>
                                         <option disabled value="#DAACE7">HäP</option>
                                         <option disabled value="#D4A5D7">HeA</option>
                                         <option disabled value="#D9ACE6">HeF</option>
@@ -2164,96 +2259,7 @@
 
 
 <script>
-    // Funktion, die aufgerufen wird, wenn sich die Auswahl in einem Dropdown-Menü ändert
-function changeBackgroundColor(selectElement) {
-    // Hintergrundfarbe entsprechend dem ausgewählten Wert festlegen
-    var selectedColor = selectElement.value;
-    selectElement.style.backgroundColor = selectedColor;
-
-    // Überprüfen, ob das selectElement eines der spezifischen IDs hat
-    for (var i = 1; i <= 32; i++) {
-        if (selectElement.id === 'colorSelector' + (i * 3 - 2)) {
-            // Hintergrundfarbe des zugehörigen Textareas ändern
-            var textarea = document.getElementById('myTextarea' + i);
-            if (textarea) {
-                textarea.style.backgroundColor = selectedColor;
-            }
-            break; // Stoppen der Schleife, da das entsprechende Textarea gefunden wurde
-        }
-    }
-
-    // Speichern der Farbe
-    saveColorSelections();
-}
-
-    // Funktion zum Speichern der Farbwerte der Dropdown-Menüs
-    function saveColorSelections() {
-        var colorSelectors = document.querySelectorAll('.colorSelector');
-        var colors = {};
-        colorSelectors.forEach(function(selector) {
-            colors[selector.id] = selector.value;
-        });
-
-        // AJAX-Anfrage zum Speichern der Farbwerte auf dem Server
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'save_colors.php');
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                console.log('Colors saved successfully.');
-            } else {
-                console.error('Failed to save colors.');
-            }
-        };
-        xhr.send(JSON.stringify(colors));
-    }
-    
-
-    // Call saveColorSelections() whenever a color selection changes
-    document.querySelectorAll('.colorSelector').forEach(function(selector) {
-        selector.addEventListener('change', changeBackgroundColor);
-    });
-
-    // Beim Laden der Seite gespeicherte Farbwerte anwenden
-    window.addEventListener('load', function() {
-        // AJAX-Anfrage zum Laden der gespeicherten Farbwerte aus der Textdatei
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'saved_colors.txt');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var savedColors = JSON.parse(xhr.responseText);
-                applySavedColors(savedColors); // Funktion aufrufen, um die Farbwerte anzuwenden
-            }
-        };
-        xhr.send();
-    });
-
-            // Funktion zum Anwenden der gespeicherten Farbwerte auf die Dropdown-Menüs
-        function applySavedColors(savedColors) {
-            if (savedColors) {
-                Object.keys(savedColors).forEach(function(id) {
-                    var dropdown = document.getElementById(id);
-                    if (dropdown) {
-                        dropdown.value = savedColors[id];
-                        dropdown.style.backgroundColor = savedColors[id];
-                        
-                        // Hintergrundfarbe der zugehörigen Textarea aktualisieren
-                        for (var i = 1; i <= 32; i++) {
-                            var colorSelectorId = 'colorSelector' + (i * 3 - 2);
-                            var textareaId = 'myTextarea' + i;  
-                            
-                            if (id === colorSelectorId) {
-                                var textarea = document.getElementById(textareaId);
-                                if (textarea) {
-                                    textarea.style.backgroundColor = savedColors[id];
-                                }
-                                break; // Stoppen der Schleife, da das entsprechende Textarea gefunden wurde
-                            }
-                        }
-                    }
-                });
-            }
-        }
+  
 </script>
 
 
