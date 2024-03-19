@@ -235,4 +235,167 @@ function checkPassword() {
                 });
             }
         }
+///////////////////////////
+// Uhrzeit für Uhr Header//
+///////////////////////////
+function updateTime() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    var day = now.toLocaleString('default', { weekday: 'long' });
+    var date = now.getDate();
+    var month = now.toLocaleString('default', { month: 'long' });
+    var year = now.getFullYear();
+  
+    // Add leading zeros if needed
+    hours = (hours < 10) ? '0' + hours : hours;
+    minutes = (minutes < 10) ? '0' + minutes : minutes;
+    seconds = (seconds < 10) ? '0' + seconds : seconds;
+  
+    var timeString = hours + ':' + minutes + ':' + seconds;
+    var dateString = day + ', ' + date + '.' + month + ' ' + year;
+  
+    document.getElementById('hour').textContent = hours;
+    document.getElementById('minute').textContent = minutes;
+    document.getElementById('second').textContent = seconds;
+    document.getElementById('date').textContent = dateString;
+}
 
+// Update time every second
+setInterval(updateTime, 1000);
+
+// Initial call to display time immediately
+updateTime();
+
+////////////////////////////
+// Uhrzeit für rote Linie///
+////////////////////////////
+function updateCurrentTime() {
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var totalMinutes = (hours * 60) + minutes;
+
+    // Überprüfung, ob die aktuelle Zeit zwischen 7:55 Uhr und 13:15 Uhr liegt
+    if (hours === 5 && minutes >= 55 || (hours > 7 && hours < 13) || (hours === 13 && minutes <= 15)) {
+        // Berechnung der vertikalen Position der Linie basierend auf der aktuellen Zeit
+        var timetableContainer = document.getElementById('timetable-container');
+        var timetableHeight = timetableContainer.clientHeight;
+        var currentMinutePercentage = ((totalMinutes - 355) / (5 * 60)) * 100; // 7:55 Uhr entspricht 475 Minuten
+        var indicatorPosition = (currentMinutePercentage * timetableHeight) / 100;
+
+        // Aktualisierung der Position der Linie
+        var indicator = document.getElementById('current-time-indicator');
+        indicator.style.display = 'block'; // Zeige die Linie nur während dieser Zeit an
+        indicator.style.top = indicatorPosition + 'px';
+    } else {
+        // Verstecke die Linie außerhalb dieser Zeit
+        var indicator = document.getElementById('current-time-indicator');
+        indicator.style.display = 'none';
+    }
+}
+
+// Aktualisiere die aktuelle Zeit alle Minute
+setInterval(updateCurrentTime, 60000);
+
+// Aktualisiere die aktuelle Zeit beim Laden der Seite
+updateCurrentTime();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+function updateCurrentTime() {
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var totalMinutes = (hours * 60) + minutes;
+
+    var timetableContainer = document.getElementById('wochenplan');
+    var timetableHeight = timetableContainer.clientHeight;
+
+    var blocks = document.querySelectorAll('.time-block');
+    blocks.forEach(function(block) {
+        var start = block.dataset.start.split(':');
+        var end = block.dataset.end.split(':');
+        var startMinutes = parseInt(start[0]) * 60 + parseInt(start[1]);
+        var endMinutes = parseInt(end[0]) * 60 + parseInt(end[1]);
+
+        if (totalMinutes >= startMinutes && totalMinutes <= endMinutes) {
+            var percentage = ((totalMinutes - startMinutes) / (endMinutes - startMinutes)) * 100;
+            var indicatorPosition = (percentage * timetableHeight) / 100;
+            var indicator = document.getElementById('current-time-indicator');
+            indicator.style.display = 'block';
+            indicator.style.top = indicatorPosition + 'px';
+        }
+    });
+}
+
+// Aktualisiere die aktuelle Zeit alle Minute
+setInterval(updateCurrentTime, 60000);
+
+// Aktualisiere die aktuelle Zeit beim Laden der Seite
+updateCurrentTime();
+
+  
+// Update time every second
+setInterval(updateTime, 1000);
+  
+// Initial call to display time immediately
+updateTime();
+
+*/
+
+
+
+
+/*function updateTime() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    var day = now.toLocaleString('default', { weekday: 'long' });
+    var date = now.getDate();
+    var month = now.toLocaleString('default', { month: 'long' });
+    var year = now.getFullYear();
+  
+    // Add leading zeros if needed
+    hours = (hours < 10) ? '0' + hours : hours;
+    minutes = (minutes < 10) ? '0' + minutes : minutes;
+    seconds = (seconds < 10) ? '0' + seconds : seconds;
+  
+    var timeString = hours + ':' + minutes + ':' + seconds;
+    var dateString = day + ', ' + date + '.' + month + ' ' + year;
+  
+    document.getElementById('hour').textContent = hours;
+    document.getElementById('minute').textContent = minutes;
+    document.getElementById('second').textContent = seconds;
+    document.getElementById('date').textContent = dateString;
+  }
+  
+  // Update time every second
+  setInterval(updateTime, 1000);
+  
+  // Initial call to display time immediately
+  updateTime();*/
+  
+  
+  
+          

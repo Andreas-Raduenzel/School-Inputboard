@@ -36,12 +36,25 @@
     
    <div class="header-container">
         <div class="header">
-            <div><img style="width: 75%; margin-left: 1em;" src="Bilder/logo.png" alt="Logo"></div>
-            <!--)<div style="margin: 0;text-align: center;"><img style="width: 70%;background-image: linear-gradient(rgb(255, 254, 195), rgb(238, 98, 98), rgb(97, 223, 92), rgb(98, 136, 238));; padding: 5px;border-radius: 5px;border:1px solid grey; background-color: silver;" src="Bilder/Metropolis-Inputboard_ohne_Hintergrund.png" alt="QR-Code"></div>-->
-            <div style="margin: 0;text-align: center;"><img style="width: 60%;background-image:radial-gradient(circle, white 20%, rgb(185, 185, 185) 90%); padding: 5px;border-radius: 5px;border:1px solid grey; background-color: silver; box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);" src="Bilder/Metropolis-Inputboard_ohne_Hintergrund.png" alt="QR-Code"></div>
-            <div><img style="width: 30%;" src="Bilder/qrcode.png" alt="QR-Code"></div>
-            <div id="clock"><iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=de&size=small&timezone=Europe%2FBerlin"  width="100%" height="90" frameborder="0" seamless></iframe></div>
-        
+            <div id="logo"><img style="width: 75%; margin-left: 1em;" src="Bilder/logo.png" alt="Logo"></div>
+            <div id="header-metropolis"><img style="background-image:radial-gradient(circle, white 20%, rgb(185, 185, 185) 90%); padding: 5px;border-radius: 5px;border:1px solid grey; background-color: silver; box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);" src="Bilder/Metropolis-Inputboard_ohne_Hintergrund.png" alt="QR-Code"></div>
+            <div id="qrcode"><img style="width: 30%;" src="Bilder/qrcode.png" alt="QR-Code"></div>
+            <table>
+                <tr>  
+                    <th class="clock">
+                        <div class="hour" id="hour"></div>
+                        <span class="colon">:</span>
+                        <div class="minute" id="minute"></div>
+                        <span class="colon">:</span>
+                        <div class="second" id="second"></div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="date" id="date"></th>
+                </tr>
+            </table>
+          
+            
         </div>
     </div>
 
@@ -49,15 +62,17 @@
     <div class="container">
    
     <form id="textInputForm" >
+       <div id="timetable-container">
         <table id="wochenplan">
             <tr>
                 <th></th>
-                <th> <img style="width: 170px; margin-left: 1em;" src="Bilder/Montag_ohne_Hintergrund.png" alt="Montag"></th>
-                <th><img style="width: 190px; margin-left: 1em;" src="Bilder/Dienstag_ohne_Hintergrund.png" alt="Dienstga"></th>
-                <th><img style="width: 200px; margin-left: 1em;" src="Bilder/Mittwoch_ohne_Hintergrund.png" alt="Mittwoch"></th>
-                <th><img style="width: 210px; margin-left: 1em;" src="Bilder/Donnerstag_ohne_Hintergrund.png" alt="Donnerstag"></th>
+                <th> <img style="width: 120px; margin-left: 1em;" src="Bilder/Montag_ohne_Hintergrund.png" alt="Montag"></th>
+                <th><img style="width: 130px; margin-left: 1em;" src="Bilder/Dienstag_ohne_Hintergrund.png" alt="Dienstga"></th>
+                <th><img style="width: 140px; margin-left: 1em;" src="Bilder/Mittwoch_ohne_Hintergrund.png" alt="Mittwoch"></th>
+                <th><img style="width: 160px; margin-left: 1em;" src="Bilder/Donnerstag_ohne_Hintergrund.png" alt="Donnerstag"></th>
             </tr>
-            <tr style="background-color: rgb(250, 250, 250);">
+           
+            <tr class="time-block" data-start="20:00" data-end="22:00" style="background-color: rgb(250, 250, 250);">
                 <td style="border-top-left-radius: 10px ;" >07:55<div style="font-weight: bold;">1. Block</div>09:10</td>
                 
                 <td id="montag_1.Block">
@@ -296,96 +311,7 @@
                                         <option disabled value="#DBAEEB">GmW</option>
                                         <option disabled value="#DBAEEA">GrC</option>
                                         <option disabled value="#DAADE9">GrJ</option>
-                                        // Funktion, die aufgerufen wird, wenn sich die Auswahl in einem Dropdown-Menü ändert
-                                        function changeBackgroundColor(selectElement) {
-                                            // Hintergrundfarbe entsprechend dem ausgewählten Wert festlegen
-                                            var selectedColor = selectElement.value;
-                                            selectElement.style.backgroundColor = selectedColor;
-                                        
-                                            // Überprüfen, ob das selectElement eines der spezifischen IDs hat
-                                            for (var i = 1; i <= 32; i++) {
-                                                if (selectElement.id === 'colorSelector' + (i * 3 - 2)) {
-                                                    // Hintergrundfarbe des zugehörigen Textareas ändern
-                                                    var textarea = document.getElementById('myTextarea' + i);
-                                                    if (textarea) {
-                                                        textarea.style.backgroundColor = selectedColor;
-                                                    }
-                                                    break; // Stoppen der Schleife, da das entsprechende Textarea gefunden wurde
-                                                }
-                                            }
-                                        
-                                            // Speichern der Farbe
-                                            saveColorSelections();
-                                        }
-                                        
-                                            // Funktion zum Speichern der Farbwerte der Dropdown-Menüs
-                                            function saveColorSelections() {
-                                                var colorSelectors = document.querySelectorAll('.colorSelector');
-                                                var colors = {};
-                                                colorSelectors.forEach(function(selector) {
-                                                    colors[selector.id] = selector.value;
-                                                });
-                                        
-                                                // AJAX-Anfrage zum Speichern der Farbwerte auf dem Server
-                                                var xhr = new XMLHttpRequest();
-                                                xhr.open('POST', 'save_colors.php');
-                                                xhr.setRequestHeader('Content-Type', 'application/json');
-                                                xhr.onload = function() {
-                                                    if (xhr.status === 200) {
-                                                        console.log('Colors saved successfully.');
-                                                    } else {
-                                                        console.error('Failed to save colors.');
-                                                    }
-                                                };
-                                                xhr.send(JSON.stringify(colors));
-                                            }
-                                            
-                                        
-                                            // Call saveColorSelections() whenever a color selection changes
-                                            document.querySelectorAll('.colorSelector').forEach(function(selector) {
-                                                selector.addEventListener('change', changeBackgroundColor);
-                                            });
-                                        
-                                            // Beim Laden der Seite gespeicherte Farbwerte anwenden
-                                            window.addEventListener('load', function() {
-                                                // AJAX-Anfrage zum Laden der gespeicherten Farbwerte aus der Textdatei
-                                                var xhr = new XMLHttpRequest();
-                                                xhr.open('GET', 'saved_colors.txt');
-                                                xhr.onreadystatechange = function() {
-                                                    if (xhr.readyState === 4 && xhr.status === 200) {
-                                                        var savedColors = JSON.parse(xhr.responseText);
-                                                        applySavedColors(savedColors); // Funktion aufrufen, um die Farbwerte anzuwenden
-                                                    }
-                                                };
-                                                xhr.send();
-                                            });
-                                        
-                                                    // Funktion zum Anwenden der gespeicherten Farbwerte auf die Dropdown-Menüs
-                                                function applySavedColors(savedColors) {
-                                                    if (savedColors) {
-                                                        Object.keys(savedColors).forEach(function(id) {
-                                                            var dropdown = document.getElementById(id);
-                                                            if (dropdown) {
-                                                                dropdown.value = savedColors[id];
-                                                                dropdown.style.backgroundColor = savedColors[id];
-                                                                
-                                                                // Hintergrundfarbe der zugehörigen Textarea aktualisieren
-                                                                for (var i = 1; i <= 32; i++) {
-                                                                    var colorSelectorId = 'colorSelector' + (i * 3 - 2);
-                                                                    var textareaId = 'myTextarea' + i;  
-                                                                    
-                                                                    if (id === colorSelectorId) {
-                                                                        var textarea = document.getElementById(textareaId);
-                                                                        if (textarea) {
-                                                                            textarea.style.backgroundColor = savedColors[id];
-                                                                        }
-                                                                        break; // Stoppen der Schleife, da das entsprechende Textarea gefunden wurde
-                                                                    }
-                                                                }
-                                                            }
-                                                        });
-                                                    }
-                                                }          <option disabled value="#DAADE8">GuH</option>
+                                        <option disabled value="#DAADE8">GuH</option>
                                         <option disabled value="#DAACE7">HäP</option>
                                         <option disabled value="#D4A5D7">HeA</option>
                                         <option disabled value="#D9ACE6">HeF</option>
@@ -666,9 +592,9 @@
                 
                 
             </tr>
-        
-            <tr style="background-color: rgb(230, 230, 230);">
-                <td>09:20<div style="font-weight: bold;">Campuszeit</div>10:05</td>
+            <td class="time-block pause" data-start="9:10" data-end="9:20" colspan="5">Campuspause (10 Min.)</td>
+            <tr class="time-block" data-start="9:20" data-end="10:05" style="background-color: rgb(230, 230, 230);">
+                <td >09:20<div style="font-weight: bold;">Campuszeit</div>10:05</td>
                 
                 <td id="montag_camuszeit">
                     <div class="dropdown" onclick="checkPassword()">
@@ -1185,7 +1111,8 @@
                 
                 
             </tr>
-            <tr style="background-color: rgb(210, 210, 210);">
+            <td class="time-block pause" data-start="10:05" data-end="10:25" colspan="5">1. Große Pause (20 Min.)</td>
+            <tr  class="time-block" data-start="10:25" data-end="11:40" style="background-color: rgb(210, 210, 210);">
                 <td>10:25<div style="font-weight: bold;">2. Block</div>11:40</td>
                 
                 <td id="montag_2. Block">
@@ -1703,7 +1630,8 @@
                 
                 
             </tr>
-            <tr style="background-color: rgb(190, 190, 190);">
+            <td class="time-block pause" data-start="11:40" data-end="12:00" colspan="5">2. Große Pause (20 Min.)</td>
+            <tr class="time-block" data-start="12:00" data-end="13:15" style="background-color: rgb(190, 190, 190);">
                 <td style="border-bottom-left-radius: 10px;">12:00<div style="font-weight: bold;">3. Block</div>13:15</td>
                 
                 <td id="montag_3. Block">
@@ -2228,6 +2156,11 @@
          
         </table>
     </form>
+         <div id="current-time-indicator"></div>
+    </div><!--Ende timetable-container-->
+    
+   
+
     <div class="legende">
         <div class="legendetext">Legende:</div>
         <div class="unterricht_cell" style="background-color: lightsteelblue;">Biologie</div>
@@ -2259,7 +2192,8 @@
 
 
 <script>
-  
+
+
 </script>
 
 
