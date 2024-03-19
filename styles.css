@@ -57,22 +57,14 @@
     
   }
     
-  
-#timetable-container {
-    position: relative;
-}
 
-#current-time-indicator {
-    position: absolute;
-    left: 0; /* Positionierung am linken Rand des Containers */
-    width: 100%; /* Die Linie erstreckt sich über die gesamte Breite des Containers */
-    height: 4px; /* Höhe der Linie */
-    background-color: rgba(255, 0, 0, 0.3); /* Farbe der Linie mit 50% Transparenz */
-    z-index: 100;
+
+.time-block.active-block {
+    background-color: rgba(255, 0, 0, 0.2) !important; /* Transparentes Rot */   
 }
 body{
     width: 100%;
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(210, 210, 210);
     margin: 0;
     padding: 0;
     /*background-image: url(Bilder/whiteboard-2903269_640.png);
