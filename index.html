@@ -60,16 +60,13 @@
 
         
     <div class="container">
-   
-    <form id="textInputForm" >
-       <div id="timetable-container">
         <table id="wochenplan">
             <tr>
                 <th></th>
-                <th> <img style="width: 120px; margin-left: 1em;background-image:radial-gradient(circle, white 20%, rgb(185, 185, 185) 90%); padding: 5px;border-radius: 5px;border:1px solid grey; background-color: silver; box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);" src="Bilder/Montag_ohne_Hintergrund" alt="Montag"></th>
-                <th><img style="width: 130px; margin-left: 1em;background-image:radial-gradient(circle, white 20%, rgb(185, 185, 185) 90%); padding: 5px;border-radius: 5px;border:1px solid grey; background-color: silver; box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);" src="Bilder/Dienstag_ohne_Hintergrund.png" alt="Dienstga"></th>
-                <th><img style="width: 150px; margin-left: 1em;background-image:radial-gradient(circle, white 20%, rgb(185, 185, 185) 90%); padding: 5px;border-radius: 5px;border:1px solid grey; background-color: silver; box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);" src="Bilder/Mittwoch_ohne_Hintergrund.png" alt="Mittwoch"></th>
-                <th><img style="width: 170px; margin-left: 1em;background-image:radial-gradient(circle, white 20%, rgb(185, 185, 185) 90%); padding: 5px;border-radius: 5px;border:1px solid grey; background-color: silver; box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);" src="Bilder/Donnerstag_ohne_Hintergrund.png" alt="Donnerstag"></th>
+                <th> <img style="width: 120px; margin-left: 1em;" src="Bilder/Montag_ohne_Hintergrund.png" alt="Montag"></th>
+                <th><img style="width: 130px; margin-left: 1em;" src="Bilder/Dienstag_ohne_Hintergrund.png" alt="Dienstga"></th>
+                <th><img style="width: 140px; margin-left: 1em;" src="Bilder/Mittwoch_ohne_Hintergrund.png" alt="Mittwoch"></th>
+                <th><img style="width: 160px; margin-left: 1em;" src="Bilder/Donnerstag_ohne_Hintergrund.png" alt="Donnerstag"></th>
             </tr>
            
             <tr class="time-block" data-start="7:55" data-end="9:09" style="background-color: rgb(250, 250, 250);">
@@ -593,7 +590,7 @@
                 
             </tr>
             <td class="time-block pause" data-start="9:10" data-end="9:19" colspan="5">Campuspause (10 Min.)</td>
-            <tr class="time-block" data-start="9:20" data-end="10:04" style="background-color: rgb(220, 220, 220);">
+            <tr class="time-block" data-start="9:20" data-end="10:04" style="background-color: rgb(230, 230, 230);">
                 <td >09:20<div style="font-weight: bold;">Campuszeit</div>10:05</td>
                 
                 <td id="montag_camuszeit">
@@ -1112,7 +1109,7 @@
                 
             </tr>
             <td class="time-block pause" data-start="10:05" data-end="10:24" colspan="5">1. Große Pause (20 Min.)</td>
-            <tr  class="time-block" data-start="10:25" data-end="11:39" style="background-color: rgb(250, 250, 250);">
+            <tr  class="time-block" data-start="10:25" data-end="11:39" style="background-color: rgb(210, 210, 210);">
                 <td>10:25<div style="font-weight: bold;">2. Block</div>11:40</td>
                 
                 <td id="montag_2. Block">
@@ -1631,7 +1628,7 @@
                 
             </tr>
             <td class="time-block pause" data-start="11:40" data-end="11:59" colspan="5">2. Große Pause (20 Min.)</td>
-            <tr class="time-block" data-start="12:00" data-end="13:15" style="background-color: rgb(220, 220,220);">
+            <tr class="time-block" data-start="12:00" data-end="13:15" style="background-color: rgb(190, 190, 190);">
                 <td style="border-bottom-left-radius: 10px;">12:00<div style="font-weight: bold;">3. Block</div>13:15</td>
                 
                 <td id="montag_3. Block">
@@ -2148,18 +2145,8 @@
                 </td>
                 
                 
-            </tr>
-
-            
-            
-            
-         
+            </tr> yy
         </table>
-    </form>
-         <div id="current-time-indicator"></div>
-    </div><!--Ende timetable-container-->
-    
-   
 
     <div class="legende">
         <div class="legendetext">Legende:</div>
@@ -2181,9 +2168,8 @@
         <div class="unterricht_cell" style="background-color: rgba(140, 190, 120, 0.75);">Oktopus</div>
         <div class="unterricht_cell" style="background-color: rgba(230, 153, 250, 0.75);">Lehrer*in</div>
     </div>
-</div>
 
-
+</div><!--Ende Container-->
 
 
 <script src="script.js"></script>
@@ -2193,38 +2179,7 @@
 
 <script>
 
-function updateActiveBlock() {
-        var timeBlocks = document.querySelectorAll('.time-block');
 
-        var now = new Date();
-
-        timeBlocks.forEach(function(timeBlock) {
-            var startTime = timeBlock.getAttribute('data-start');
-            var endTime = timeBlock.getAttribute('data-end');
-
-            var start = new Date();
-            var end = new Date();
-
-            start.setHours(parseInt(startTime.split(':')[0]));
-            start.setMinutes(parseInt(startTime.split(':')[1]));
-
-            end.setHours(parseInt(endTime.split(':')[0]));
-            end.setMinutes(parseInt(endTime.split(':')[1]));
-
-            if (now >= start && now <= end) {
-                timeBlock.classList.add('active-block');
-            } else {
-                timeBlock.classList.remove('active-block');
-            }
-        });
-    }
-
-    window.onload = function() {
-        updateActiveBlock(); // Initialer Check beim Laden der Seite
-
-        // Überprüfung alle 10 Sekunden
-        setInterval(updateActiveBlock, 10000); // 10000 Millisekunden = 10 Sekunden
-    };
 </script>
 
 

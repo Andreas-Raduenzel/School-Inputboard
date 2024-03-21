@@ -272,6 +272,47 @@ updateTime();
 // Uhrzeit für rote Linie///
 ////////////////////////////
 
+document.addEventListener("DOMContentLoaded", function() {
+  // Funktion zum Hinzufügen der Zeitlinie
+  function addTimeLine() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const currentTime = hours * 60 + minutes; // Aktuelle Zeit in Minuten seit Mitternacht
+
+    const timeBlocks = document.querySelectorAll(".time-block");
+
+    for (let block of timeBlocks) {
+      const start = block.dataset.start.split(":");
+      const end = block.dataset.end.split(":");
+      const startTime = parseInt(start[0]) * 60 + parseInt(start[1]); // Startzeit in Minuten seit Mitternacht
+      const endTime = parseInt(end[0]) * 60 + parseInt(end[1]); // Endzeit in Minuten seit Mitternacht
+
+      // Überprüft, ob die aktuelle Zeit innerhalb des Zeitblocks liegt
+      if (currentTime >= startTime && currentTime <= endTime) {
+        const lineHeight = (currentTime - startTime) / (endTime - startTime) * block.offsetHeight; // Berechnet die Position der Linie innerhalb des Blocks
+
+        // Erstellt die Linie, wenn sie noch nicht existiert
+        let timeLine = document.querySelector(".time-line");
+        if (!timeLine) {
+          timeLine = document.createElement("div");
+          timeLine.className = "time-line";
+          document.body.appendChild(timeLine);
+        }
+
+        // Positioniert die Linie
+        const blockRect = block.getBoundingClientRect();
+        timeLine.style.top = blockRect.top + lineHeight + "px";
+        break; // Beendet die Schleife, da die Linie positioniert wurde
+      }
+    }
+  }
+
+  addTimeLine();
+  // Option: Aktualisieren Sie die Position der Linie jede Minute
+  setInterval(addTimeLine, 60000);
+});
+
 
 
   
