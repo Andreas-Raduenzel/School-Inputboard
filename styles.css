@@ -184,7 +184,7 @@ th, td {
 
 /* Styling für das Dropdown-Menü */
 .colorSelector {
-    /*width: 120px; /* Breite des Dropdown-Menüs */
+    width: 90px; /* Breite des Dropdown-Menüs */
     padding: 2px; /* Innenabstand des Dropdown-Menüs */
     border: 1px solid grey; /* Rand des Dropdown-Menüs */
     cursor: pointer; /* Zeiger ändern, wenn über dem Dropdown-Menü gehalten wird */
@@ -194,6 +194,8 @@ th, td {
     border-radius: 3px;
     text-align: center;
     margin:5px 2px 2px 2px;
+
+    
   }
   
 
@@ -241,9 +243,10 @@ and (orientation : landscape) {
     }
     .colorSelector{
     color: black;
-    width: 100%;
-    font-size: 8px;
+    width: 50px;
+    font-size: 7px;
     outline: none;
+    text-align: center;
     }
     #wochenplan tbody tr td {font-size: 0.5em; } /*Text Zeitangaben kleiner*/
     textarea {
@@ -309,6 +312,11 @@ and (orientation : landscape) {
       .pause{
         font-size:9px ;
     } 
+
+    .unterricht_cell {
+        
+      font-size: 7px;
+    }
   }
   
  
@@ -321,8 +329,10 @@ and (max-device-width : 500px) {
     /* CSS-Stile für Tablets hier definieren */
 
     body{
-        width: 100%;
-        
+        width: 220%;  
+    }
+    .time-line {
+      width: 220%;
     }
     #wochenplan tbody tr td {
         font-size: 0.2em; } /*Text Zeitangaben kleiner*/
@@ -362,8 +372,9 @@ and (max-device-width : 500px) {
 
     .colorSelector {
     color: black;
-    width: 100%;
+    width: 40px;
     font-size: 5px;
+    text-align: center;
     }
 
     textarea {
@@ -394,7 +405,7 @@ and (max-device-width : 500px) {
     }
     .unterricht_cell {
         
-        font-size: 8px;
+        font-size: 4px;
        
       }
 

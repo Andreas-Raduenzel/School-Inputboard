@@ -152,7 +152,7 @@ function checkPassword() {
     selectElement.style.backgroundColor = selectedColor;
 
     // Überprüfen, ob das selectElement eines der spezifischen IDs hat
-    for (var i = 1; i <= 32; i++) {
+    for (var i = 1; i <= 40; i++) {
         if (selectElement.id === 'colorSelector' + (i * 3 - 2)) {
             // Hintergrundfarbe des zugehörigen Textareas ändern
             var textarea = document.getElementById('myTextarea' + i);
@@ -219,7 +219,7 @@ function checkPassword() {
                         dropdown.style.backgroundColor = savedColors[id];
                         
                         // Hintergrundfarbe der zugehörigen Textarea aktualisieren
-                        for (var i = 1; i <= 32; i++) {
+                        for (var i = 1; i <= 40; i++) {
                             var colorSelectorId = 'colorSelector' + (i * 3 - 2);
                             var textareaId = 'myTextarea' + i;  
                             
